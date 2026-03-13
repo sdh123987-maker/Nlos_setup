@@ -1,0 +1,16 @@
+# ROS2 파라미터 형식
+/**:
+  ros__parameters:
+    radar_id: "radar_0"
+    frame_id: "radar_link"
+    cli_port: "/dev/ttyACM0"
+    data_port: "/dev/ttyACM1"
+    cli_baudrate: 115200
+    data_baudrate: 3125000
+    timeout: 0.05
+    pos_x: 0.0
+    pos_y: 0.0
+    pos_z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0

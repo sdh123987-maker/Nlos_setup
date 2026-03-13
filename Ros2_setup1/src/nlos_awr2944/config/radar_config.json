@@ -1,0 +1,43 @@
+{
+    "serial_settings": {
+        "cli_port": "/dev/ttyACM0",
+        "data_port": "/dev/ttyACM1",
+        "cli_baudrate": 115200,
+        "data_baudrate": 3125000,
+        "timeout": 0.05
+    },
+    "ros_settings": {
+        "frame_id": "radar_link",
+        "topic_name": "radar/points"
+    },
+    "radar_commands": [
+        "sensorStop",
+        "flushCfg",
+        "dfeDataOutputMode 1",
+        "channelCfg 15 13 0",
+        "adcCfg 2 0",
+        "adcbufCfg -1 1 1 1 1",
+        "lowPower 0 0",
+        "profileCfg 0 77 20 2.5 57.14 0 0 70 1 512 12000 0 0 30",
+        "chirpCfg 0 0 0 0 0 0 0 1",
+        "chirpCfg 1 1 0 0 0 0 0 4",
+        "chirpCfg 2 2 0 0 0 0 0 8",
+        "frameCfg 0 2 64 0 512 50 1 0",
+        "lowPower 0 0",
+        "guiMonitor -1 1 1 1 1 0 1",
+        "antGeometryCfg 1 0 1 1 1 2 1 3 0 2 0 3 0 4 0 5 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 0.5 0.8",
+        "cfarCfg -1 0 2 8 4 3 0 9 1",
+        "cfarCfg -1 1 0 4 2 3 1 9 1",
+        "multiObjBeamForming -1 1 0.5",
+        "calibDcRangeSig -1 0 -5 8 256",
+        "clutterRemoval -1 0",
+        "cfarFovCfg -1 0 0 18.40",
+        "cfarFovCfg -1 1 -1 1.00",
+        "compRangeBiasAndRxChanPhase 0.0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0",
+        "extendedMaxVelocity -1 0",
+        "measureRangeBiasAndRxChanPhase 0 1.5 0.2",
+        "aoaFovCfg -1 -90 90 -90 90",
+        "calibData 0 0 0",
+        "sensorStart"
+    ]
+}

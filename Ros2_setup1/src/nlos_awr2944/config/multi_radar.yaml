@@ -1,0 +1,80 @@
+# ===========================================
+# AWR2944 Multi-Radar Configuration
+# ===========================================
+# 중요: ROS 2 파라미터 파일은 반드시 아래와 같은 계층 구조를 가져야 합니다.
+# /노드이름:
+#   ros__parameters:
+#     변수명: 값
+
+/multi_radar_manager:
+  ros__parameters:
+    # -------------------------------------------
+    # 동기화 설정
+    # -------------------------------------------
+    sync_tolerance_ms: 10.0      # 프레임 동기화 허용 오차 (밀리초)
+    sync_queue_size: 10          # 동기화 대기 큐 크기
+    merge_pointclouds: true      # 포인트 클라우드 병합 여부
+    merged_frame_id: "base_link"
+    sync_rate_hz: 100.0          # 동기화 처리 주기 (Hz)
+    target_freq_hz: 10.0         # 목표 주파수 (추가됨)
+
+    # -------------------------------------------
+    # 레이더 0 설정 (전방)
+    # -------------------------------------------
+    radar_0:
+      enabled: true
+      cli_port: "/dev/ttyACM0"
+      data_port: "/dev/ttyACM1"
+      frame_id: "radar_0_link"
+      # Transform (base_link 기준 위치)
+      pos_x: 0.5    # 전방 0.5m
+      pos_y: 0.0
+      pos_z: 0.3    # 높이 0.3m
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0      # 전방 방향
+
+    # -------------------------------------------
+    # 레이더 1 설정 (좌측)
+    # -------------------------------------------
+    radar_1:
+      enabled: false
+      cli_port: "/dev/ttyACM2"
+      data_port: "/dev/ttyACM3"
+      frame_id: "radar_1_link"
+      pos_x: 0.0
+      pos_y: 0.5    # 좌측 0.5m
+      pos_z: 0.3
+      roll: 0.0
+      pitch: 0.0
+      yaw: 1.5708   # 90도 (좌측 방향) - π/2
+
+    # -------------------------------------------
+    # 레이더 2 설정 (후방)
+    # -------------------------------------------
+    radar_2:
+      enabled: false
+      cli_port: "/dev/ttyACM4"
+      data_port: "/dev/ttyACM5"
+      frame_id: "radar_2_link"
+      pos_x: -0.5   # 후방 0.5m
+      pos_y: 0.0
+      pos_z: 0.3
+      roll: 0.0
+      pitch: 0.0
+      yaw: 3.1416   # 180도 (후방 방향) - π
+
+    # -------------------------------------------
+    # 레이더 3 설정 (우측)
+    # -------------------------------------------
+    radar_3:
+      enabled: false
+      cli_port: "/dev/ttyACM6"
+      data_port: "/dev/ttyACM7"
+      frame_id: "radar_3_link"
+      pos_x: 0.0
+      pos_y: -0.5   # 우측 0.5m
+      pos_z: 0.3
+      roll: 0.0
+      pitch: 0.0
+      yaw: -1.5708  # -90도 (우측 방향) - -π/2
