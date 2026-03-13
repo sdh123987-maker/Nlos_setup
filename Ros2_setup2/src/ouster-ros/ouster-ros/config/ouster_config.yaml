@@ -1,0 +1,9 @@
+/ouster/os_driver:
+  ros__parameters:
+    sensor_hostname: "169.254.1.34"
+    udp_dest: "169.254.1.100"
+    lidar_port: 7502
+    imu_port: 7503
+    lidar_mode: "1024x20"
+    timestamp_mode: "TIME_FROM_ROS_TIME"
+    point_type: "native"
