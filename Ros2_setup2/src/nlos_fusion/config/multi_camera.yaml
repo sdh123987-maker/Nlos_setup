@@ -1,0 +1,73 @@
+# ==============================================
+# Multi-Camera Configuration
+# ==============================================
+# multi_radar.yaml과 동일한 패턴
+# enabled: true/false로 가용 카메라 수 조절
+#
+# serial_no: rs-enumerate-devices 명령으로 확인
+#   $ rs-enumerate-devices | grep "Serial Number"
+#
+# 토픽 구조:
+#   /cam_0/cam_0/color/image_raw
+#   /cam_1/cam_1/color/image_raw
+#   ...
+# ==============================================
+
+multi_camera:
+  # 전역 설정
+  enable_depth: false
+  color_profile: "640,480,30"
+  pointcloud_enable: false
+
+  # 카메라 0 (정면)
+  cam_0:
+    enabled: true
+    serial_no: !!str 049222070761
+    camera_name: "cam_0"
+    camera_namespace: "cam_0"
+    # 위치 (base_link 기준, 미터/라디안)
+    pos_x: 0.0
+    pos_y: 0.0
+    pos_z: 0.3
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+
+  # 카메라 1 (좌측)
+  cam_1:
+    enabled: false
+    serial_no: !!str 112322072763
+    camera_name: "cam_1"
+    camera_namespace: "cam_1"
+    pos_x: 0.0
+    pos_y: 0.3
+    pos_z: 0.3
+    roll: 0.0
+    pitch: 0.0
+    yaw: 1.5708   # 90도
+
+  # 카메라 2 (우측)
+  cam_2:
+    enabled: false
+    serial_no: ""
+    camera_name: "cam_2"
+    camera_namespace: "cam_2"
+    pos_x: 0.0
+    pos_y: -0.3
+    pos_z: 0.3
+    roll: 0.0
+    pitch: 0.0
+    yaw: -1.5708  # -90도
+
+  # 카메라 3 (후면)
+  cam_3:
+    enabled: false
+    serial_no: ""
+    camera_name: "cam_3"
+    camera_namespace: "cam_3"
+    pos_x: -0.3
+    pos_y: 0.0
+    pos_z: 0.3
+    roll: 0.0
+    pitch: 0.0
+    yaw: 3.1416   # 180도
